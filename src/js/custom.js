@@ -1,7 +1,4 @@
-class CustomCode {
-  constructor(options) {
-    this.options = options;
-  }
+const CustomCode =  {
 
   /**
    * 数组去重  兼容ie8
@@ -21,7 +18,7 @@ class CustomCode {
       temp.push(arr[i]);
     }
     return temp;
-  }
+  },
 
   /**
    * 去重  不兼容IE8
@@ -34,7 +31,7 @@ class CustomCode {
       if (arr.indexOf(arr[i]) === i) temp.push(arr[i]);
     }
     return temp;
-  }
+  },
 
   /**
    * 保留n位小数
@@ -58,16 +55,15 @@ class CustomCode {
       }
     }
     return `${part1}${part2}`;
-  }
+  },
 
   /**
    * 不足10则补零
    * @param {Number} val 
    */
   fillZero(val) {
-    if (typeof value !== 'number') throw new TypeError(`${val} is not a Number`);
-    return val.toString().padStart(2, '0');
-  }
+    return `0${val}`.slice(-2);
+  },
 
   /**
    * 根据时间戳返回日期，星期
@@ -83,7 +79,7 @@ class CustomCode {
     const week = '一二三四五六日'.charAt(date.getDay());
     const year = date.getFullYear();
     return [`${year}${type}${month}${type}${day}`, `星期${week}`];
-  }
+  },
 
   /**
    * @param {Number} s 
@@ -100,7 +96,7 @@ class CustomCode {
     } else {
       return `${min}:${sec}`;
     }
-  }
+  },
 
   // 获取URL query参数转为object
   getLocationQuery() {
@@ -116,7 +112,7 @@ class CustomCode {
       }
     });
     return obj;
-  }
+  },
 
   /**
    * 
@@ -130,7 +126,7 @@ class CustomCode {
       cb();
       this.customInterval(cb, n);
     }, n * 1000)
-  }
+  },
 
     /**
      * @param {Number} n 
@@ -143,7 +139,7 @@ class CustomCode {
     if (n > 1) {
       return this.fib(n-1) + this.fib(n-2);
     }
-  }
+  },
 
   /**
    * @param {Number} n 
@@ -157,7 +153,7 @@ class CustomCode {
     // 代码少 性能比for差30倍 https://jsperf.com/constarray/4
     const fibArr = Array.from({ length: n }).map((x, i) => x = this.fib(i));
     return fibArr;
-  }
+  },
 
   /**
    * 
@@ -166,7 +162,7 @@ class CustomCode {
    */
   setCooies(key, value) {
     document.cookie = key + "=" + value;
-  }
+  },
 
     /**
      * @param {String} key 
@@ -186,4 +182,4 @@ class CustomCode {
   }
 }
 
-module.exports = CustomCode;
+export default CustomCode;

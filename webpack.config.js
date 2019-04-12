@@ -10,10 +10,10 @@ module.exports = {
   },
   output: {   //输出
     path: path.resolve(__dirname, 'dist'),    //path.resolve为nodejs的固定语法，用于找到当前文件的绝对路径
-    filename: '[name].min.js'    //输出的文件名
+    filename: '[name].[hash].bundle.js'    //输出的文件名
   },
   plugins: [
-    // new CleanWebpackPlugin(['./dist']),
+    new CleanWebpackPlugin(['./dist/']),
     new HtmlWebpackPlugin({
       title: 'test1',
       template: './src/template.html',
